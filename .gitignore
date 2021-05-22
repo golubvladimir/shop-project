@@ -1,0 +1,16 @@
+# node modules
+client/node_modules
+server/node_modules
+
+# Nuxt build
+client/.nuxt
+
+# Nuxt generate
+client/dist
+
+# Nest build
+server/dist
+
+# phpShorm
+.idea
+
