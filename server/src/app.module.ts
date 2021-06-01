@@ -4,12 +4,14 @@ import { AppService } from './app.service';
 import { PrismaService } from "./prisma.sevice";
 import { CategoriesModule } from './categories/categories.module';
 import { ManufacturersModule } from './manufacturers/manufacturers.module';
+import { ProductsModule } from './products/products.module';
 
 @Global()
 @Module({
   imports: [
     CategoriesModule,
-    ManufacturersModule
+    ManufacturersModule,
+    ProductsModule
   ],
   controllers: [AppController],
   providers: [
