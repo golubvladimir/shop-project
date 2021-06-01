@@ -9,7 +9,7 @@ async function main() {
     ]
   })
 
-  const manufacturer = await prisma.manufacturer.createMany({
+  const manufacturers = await prisma.manufacturer.createMany({
     data: [
       { name: 'Apple' },
       { name: 'Samsung' }
@@ -44,8 +44,6 @@ async function main() {
       }
     ]
   })
-
-  console.log({ categories })
 }
 
 main()
