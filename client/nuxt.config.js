@@ -21,6 +21,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '@/plugins/axios-accessor.ts' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -37,11 +38,15 @@ export default {
   modules: [
     '@nuxtjs/axios'
   ],
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [
       'vuex-module-decorators'
     ]
+  },
+  // axios module
+  axios: {
+    baseURL: 'http://localhost:3001/api',
+    browserBaseURL: 'http://localhost:3001/api'
   }
 }
