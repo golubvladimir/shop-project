@@ -38,11 +38,12 @@ export default {
   modules: [
     '@nuxtjs/axios'
   ],
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: [
+      'vuex-module-decorators'
+    ]
   },
-
   // axios module
   axios: {
     baseURL: 'http://localhost:3001/api',
