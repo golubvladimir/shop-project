@@ -1,13 +1,7 @@
 import { VuexModule, Module, Action, Mutation } from "vuex-module-decorators";
+import { CatalogItem } from '@/ts/interfaces/CatalogItem.interface';
 
 import { $axios } from '~/utils/axios'
-
-interface CatalogItem {
-  id: number
-  name: string,
-  img: string,
-  price: number
-}
 
 @Module({
   name: 'catalog',
@@ -24,6 +18,8 @@ export default class Catalog extends VuexModule {
 
   @Action({ commit: 'setItems' })
   async getItems(): Promise<CatalogItem[]> {
-    return $axios.$get('/catalog');
+    const result = await $axios.$get('/products');
+
+    return result;
   }
 }
