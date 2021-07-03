@@ -2,29 +2,32 @@
   <div class="">
     <catalog-item
       v-for="item in items"
-      class=""
-      :img="item.img"
+      :key="item.id"
       :name="item.name"
-      :price="item.price"
+      :manufacturer="item.manufacturer"
     />
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, toRefs} from "@nuxtjs/composition-api";
+  import { defineComponent, PropType } from '@nuxtjs/composition-api';
 
-export default defineComponent({
-  components: {
-    catalogItem: () => import('@/components/pages/catalog/elements/catalogItem')
-  },
-  setup(props) {
-    const { items } = toRefs(props);
+  import {CatalogItem} from "~/ts/interfaces/CatalogItem.interface";
 
-    return {
-      items
+  export default defineComponent({
+    components: {
+      CatalogItem: () => import('@/components/pages/catalog/elements/CatalogItem.vue')
+    },
+    props: {
+      items: {
+        type: Array as PropType<CatalogItem[]>,
+        default: []
+      }
+    },
+    setup(props) {
+
     }
-  }
-})
+  })
 </script>
 
 <style scoped>
